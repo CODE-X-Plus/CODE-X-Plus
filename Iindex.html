@@ -1,0 +1,2307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="First-year Computer Science student exploring Artificial Intelligence, Machine Learning, Python and intelligent systems."
+    >
+
+    <title>Sumit Midya | CSE • AI & ML Portfolio</title>
+
+    <style>
+/* =====================================================
+   RESET & GLOBAL CLEANUP (NO BORDERS/LINES)
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none !important;
+    outline: none !important;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: #15102d;
+    background:
+        linear-gradient(
+            180deg,
+            #090914 0%,
+            #0c0b18 10%,
+            #120b1d 20%,
+            #f9f8fc 31%,
+            #f9f8fc 60%,
+            #100b1c 78%,
+            #0b0914 100%
+        );
+    overflow-x: hidden;
+}
+
+
+section,
+header,
+footer {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+section {
+    position: relative;
+}
+
+
+main {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   GLOBAL GRADIENT SYSTEM
+===================================================== */
+
+:root {
+    --blue: #2778ff;
+    --purple: #813cff;
+    --pink: #d63cf2;
+    --orange: #ff7835;
+    --dark: #0c0b18;
+    --dark-2: #110c1d;
+    --text: #17112f;
+    --muted: #81799b;
+    --white: #ffffff;
+    --gradient:
+        linear-gradient(
+            100deg,
+            #2d8cff 0%,
+            #7444ff 35%,
+            #cf43db 68%,
+            #ff7835 100%
+        );
+}
+
+
+/* =====================================================
+   PAGE GLOW & ANIMATIONS
+===================================================== */
+
+.page-glow {
+    position: fixed;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    filter: blur(150px);
+    pointer-events: none;
+    z-index: -10;
+    opacity: .18;
+    animation: floatGlow 12s ease-in-out infinite alternate;
+}
+
+@keyframes floatGlow {
+    0% { transform: translateY(0px) scale(1); }
+    100% { transform: translateY(-40px) scale(1.08); }
+}
+
+.glow-blue {
+    background: #1769ff;
+    left: -400px;
+    top: 100px;
+}
+
+.glow-purple {
+    background: #913bff;
+    right: -400px;
+    top: 35%;
+    animation-delay: -4s;
+}
+
+.glow-orange {
+    background: #ff7431;
+    right: -350px;
+    bottom: 0;
+    animation-delay: -8s;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+
+    position: fixed;
+
+    top: 10px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(830px, calc(100% - 30px));
+
+    height: 56px;
+
+    padding: 6px 7px 6px 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background:
+        rgba(255,255,255,.96);
+
+    border-radius: 20px;
+
+    z-index: 1000;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.12);
+
+    transition: .3s ease;
+
+}
+
+
+.navbar.scrolled {
+
+    box-shadow:
+        0 15px 45px rgba(37, 20, 80, .18);
+
+}
+
+
+/* Logo */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    text-decoration: none;
+
+    color: #17113a;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-weight: 600;
+
+    font-size: 15px;
+
+}
+
+
+.logo-svg {
+    display: inline-block;
+    vertical-align: middle;
+    animation: pulseLogo 4s ease-in-out infinite;
+}
+
+@keyframes pulseLogo {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(150,62,255,0.4)); }
+    50% { transform: scale(1.05); filter: drop-shadow(0 0 8px rgba(0,242,254,0.7)); }
+}
+
+
+/* Nav links */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 32px;
+
+}
+
+
+.nav-links a {
+
+    color: #201a3c;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    transition: .25s ease;
+
+}
+
+
+.nav-links a:hover {
+
+    color: #7042ff;
+
+}
+
+
+/* Nav button */
+
+.nav-button {
+
+    text-decoration: none;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            100deg,
+            #6025F5, #FF5555
+        );
+
+    height: 42px;
+
+    min-width: 105px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 13px;
+
+    font-weight: 100;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.25);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: aiShimmerBtn 4s ease infinite;
+}
+
+.nav-button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 20px rgba(155,81,224,0.6), inset 0 0 0 1px rgba(255,255,255,.5);
+}
+
+@keyframes aiShimmerBtn {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.15); }
+}
+
+
+/* =====================================================
+   HERO (EXACT HALF-CIRCLE NEON ARC BACKGROUND)
+===================================================== */
+
+.hero {
+    min-height: 100vh;
+    padding-top: 60px !important; /* ফিক্সড ন্যাভবারের নিচে যাতে বেশি ফাঁকা না থাকে */
+    padding-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(ellipse at 50% 25%, #180525 0%, #08030e 55%, #040107 100%);
+}
+
+/* Perfect Half-Circle Glowing Neon Arc matching uploaded reference */
+.hero-half-circle-arc {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(920px, 95vw);
+    height: min(920px, 95vw);
+    border-radius: 50%;
+    border-top: 4px solid #df45ff;
+    border-left: 3px solid rgba(215, 60, 255, 0.3);
+    border-right: 3px solid rgba(215, 60, 255, 0.3);
+    border-bottom: none;
+    box-shadow:
+        0 -15px 40px #e042ff,
+        0 -35px 90px #9e12f0,
+        0 -70px 150px #6300c7,
+        inset 0 20px 45px #f47aff;
+    pointer-events: none;
+    z-index: 1;
+    animation: pulseHalfArc 6s ease-in-out infinite alternate;
+}
+
+/* Soft atmospheric radial bloom behind the arc */
+.hero-cosmic-aura {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 950px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(185, 40, 255, 0.32) 0%, rgba(105, 12, 175, 0.14) 50%, transparent 75%);
+    filter: blur(85px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes pulseHalfArc {
+    0% {
+        transform: translateX(-50%) scale(0.98);
+        box-shadow: 0 -12px 30px #df45ff, 0 -30px 80px #9e12f0, 0 -60px 130px #6300c7, inset 0 15px 35px #f47aff;
+        opacity: 0.85;
+    }
+    100% {
+        transform: translateX(-50%) scale(1.03);
+        box-shadow: 0 -22px 55px #f16bff, 0 -45px 110px #b429ff, 0 -90px 180px #7900eb, inset 0 30px 60px #ff94ff;
+        opacity: 1;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.small-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 15px;
+    border-radius: 50px;
+    background: rgba(255,255,255,.07);
+    color: #c2b7df;
+    font-size: 12px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    animation: floatBadge 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatBadge {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-4px); }
+}
+
+.badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4e91ff, #c243ff);
+    box-shadow: 0 0 15px #9144ff;
+    animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 20px #00f2fe; }
+}
+
+.hero h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: .98;
+    letter-spacing: -4px;
+    font-weight: 600;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.gradient-text {
+    background: linear-gradient(100deg, #00f2fe 0%, #7a48ff 34%, #d33cdb 70%, #ff7738 100%);
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: aiGradientShift 6s ease infinite;
+}
+
+@keyframes aiGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-description {
+    max-width: 720px;
+    margin: 15px auto 35px;
+    color: white;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: inline-flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.primary-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    min-height: 56px;
+
+    padding: 0 25px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            110deg,
+            #246aff,
+            #7635ff
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 15px 35px rgba(76, 52, 255, .25);
+
+    transition: .3s ease;
+
+}
+
+
+.primary-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 20px 45px rgba(76, 52, 255, .38);
+
+}
+
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    min-height: 60px;
+    padding: 0 15px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    background: rgba(255,255,255,.025);
+    transition: .6s ease;
+}
+
+.secondary-button:hover {
+    background: rgba(255,255,255,.08);
+}
+
+
+/* =====================================================
+   SECTION TRANSITIONS & GRADIENT BLENDING (NO LINES)
+===================================================== */
+
+.section-container {
+    width: min(1100px, calc(100% - 40px));
+    margin: auto;
+    position: relative;
+    z-index: 5;
+}
+
+.intro-section,
+.skills-section,
+.education-section {
+    position: relative;
+    padding: 60px 0;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -50px;
+    height: 100px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.intro-section::before {
+    background: linear-gradient(180deg, rgba(16, 11, 28, 0.95) 0%, rgba(166, 99, 255, 0.2) 50%, rgba(249, 248, 252, 0) 100%);
+}
+
+.skills-section::before {
+    background: linear-gradient(180deg, rgba(249, 248, 252, 0) 0%, rgba(159, 79, 255, 0.08) 50%, rgba(249, 248, 252, 1) 100%);
+}
+
+.projects-section::before {
+    background: linear-gradient(180deg, rgba(249, 248, 252, 1) 0%, rgba(133, 63, 255, 0.3) 50%, rgba(16, 11, 27, 0.9) 100%);
+}
+
+.journey-section::before {
+    background: linear-gradient(180deg, rgba(16, 11, 27, 0.9) 0%, rgba(117, 47, 223, 0.25) 50%, rgba(11, 9, 21, 1) 100%);
+}
+
+.education-section::before {
+    background: linear-gradient(180deg, rgba(11, 9, 21, 1) 0%, rgba(157, 82, 255, 0.25) 50%, rgba(248, 247, 252, 1) 100%);
+}
+
+.experience-section::before {
+    background: linear-gradient(180deg, rgba(248, 247, 252, 1) 0%, rgba(130, 60, 240, 0.3) 50%, rgba(13, 9, 23, 1) 100%);
+}
+
+.contact-section::before {
+    background: linear-gradient(180deg, rgba(13, 9, 23, 1) 0%, rgba(126, 45, 235, 0.3) 50%, rgba(11, 9, 20, 1) 100%);
+}
+
+
+/* =====================================================
+   LEARNING & CONTENT SECTIONS
+===================================================== */
+
+.intro-section {
+    background:
+        radial-gradient(ellipse 50% 40% at 50% 0%, rgba(166,99,255,.38), transparent 70%),
+        linear-gradient(180deg, #100b1d 0%, #f9f8fc 40%, #f9f8fc 100%);
+}
+
+.section-badge {
+    display: table;
+    margin: 0 auto 15px;
+    padding: 9px 16px;
+    border-radius: 50px;
+    background: rgba(255,255,255,.92);
+    box-shadow: 0 7px 25px rgba(72,43,120,.08);
+    font-size: 12px;
+    font-weight: 700;
+    color: #24184c;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(125,50,255,0.2);
+}
+
+.intro-section h2,
+.skills-section h2,
+.education-section h2 {
+    font-family: "Space Grotesk", sans-serif;
+    text-align: center;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -3px;
+    font-weight: 600;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.section-description {
+    text-align: center;
+    max-width: 720px;
+    margin: 15px auto 35px;
+    color: #3b324a !important; /* lekhar color ke aro dark kora holo jate clear dekha jay */
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.info-card {
+    min-height: 220px;
+    padding: 30px;
+    background: rgba(255,255,255,.86);
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(61,35,101,.07);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 60px rgba(125,50,255,0.15);
+}
+
+.card-number {
+    font-size: 7px;
+    color: #8b54ff;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.info-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 24px;
+    margin-bottom: 13px;
+}
+
+.info-card p {
+    color: #77708b;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+.skills-section {
+    background:
+        radial-gradient(ellipse 55% 35% at 50% 0%, rgba(159,79,255,.2), transparent 70%),
+        linear-gradient(180deg, #f9f8fc 0%, #f9f8fc 100%);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.skill-card {
+    padding: 28px;
+    min-height: 280px;
+    border-radius: 23px;
+    background: rgba(255,255,255,.8);
+    box-shadow: 0 15px 40px rgba(67,42,111,.06);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(155,81,224,0.18);
+}
+
+.skill-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #e8edff, #f4e6ff);
+    color: #6339e9;
+    font-weight: 800;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.skill-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 19px;
+    margin-bottom: 13px;
+}
+
+.skill-card p {
+    color: #817991;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.skill-bar {
+    height: 5px;
+    margin-top: 20px;
+    border-radius: 20px;
+    background: #eeeaf5;
+    overflow: hidden;
+}
+
+.skill-bar span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #287eff, #9b42ef, #ff7537);
+    background-size: 200% auto;
+    animation: aiGradientShift 5s ease infinite;
+}
+
+.skill-card small {
+    display: block;
+    margin-top: 10px;
+    color: #958ca5;
+}
+
+
+/* =====================================================
+   PROJECTS (MATCHING 2ND UPLOADED IMAGE STYLE)
+===================================================== */
+
+.projects-section {
+    padding: 90px 0;
+    color: white;
+    background: #05030a;
+    background-image: 
+        radial-gradient(circle at 50% 20%, rgba(133, 63, 255, 0.25) 0%, transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(0, 242, 254, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 122, 0.15) 0%, transparent 50%);
+    position: relative;
+    overflow: hidden;
+}
+
+.dark-badge {
+    background: rgba(255,255,255,.07);
+    color: #d4c8ec;
+}
+
+.dark-heading {
+    font-family: "Space Grotesk", sans-serif;
+    text-align: center;
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.05;
+    letter-spacing: -3px;
+    font-weight: 600;
+}
+
+.dark-description {
+    color: #9489a9;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 45px;
+}
+
+.project-card {
+    padding: 30px 24px;
+    border-radius: 28px;
+    background: linear-gradient(145deg, rgba(18, 13, 33, 0.75), rgba(8, 6, 16, 0.85));
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 380px;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 140px;
+    background: radial-gradient(circle at 50% 0%, rgba(155, 81, 224, 0.35), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(175, 95, 255, 0.35) !important;
+    box-shadow: 0 30px 70px rgba(125, 40, 235, 0.25), 0 0 30px rgba(0, 242, 254, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.project-tag {
+    font-size: 11.5px;
+    padding: 7px 14px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #d1b8ff;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.project-tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00f2fe;
+    box-shadow: 0 0 8px #00f2fe;
+}
+
+.project-arrow {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,.05);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+    color: #bca3ff;
+    text-decoration: none;
+}
+
+.project-card:hover .project-arrow {
+    transform: translate(2px, -2px) scale(1.1);
+    background:
+        linear-gradient(
+            100deg,
+            red, #FF5555
+        );
+    color: #fff;
+}
+
+.project-content-box {
+    position: relative;
+    z-index: 2;
+    margin: auto 0;
+    padding: 20px 0;
+}
+
+.project-card h4 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Flexible Explore window button appearing on hover with AI gradient shadow & animation */
+.project-explore-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 48px;
+    margin-top: 15px;
+    border-radius: 14px;
+    background: linear-gradient(110deg, #246aff, #7635ff, #d63cf2);
+    background-size: 200% auto;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 13.5px;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 10px 25px rgba(118, 53, 255, 0.4), 0 0 15px rgba(0, 242, 254, 0.3);
+    position: relative;
+    z-index: 3;
+}
+
+.project-card:hover .project-explore-btn {
+    opacity: 1;
+    transform: translateY(0);
+    
+}
+
+.project-explore-btn:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 15px 35px rgba(118, 53, 255, 0.6), 0 0 25px rgba(0, 242, 254, 0.5);
+}
+
+
+/* =====================================================
+   JOURNEY & EDUCATION & EXPERIENCE
+===================================================== */
+
+
+/* 1. Make the section relative so absolute items anchor inside it */
+.journey-section {
+  position:relative;
+  width: 100%;
+  min-height: 100vh; /* Or whatever height your section needs */
+  display:flexbox;
+  padding: 60px 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Hides any overflow outside the section */
+  background: radial-gradient(ellipse at 50% 30%, rgba(117,47,223,.18), transparent 60%), linear-gradient(180deg, #0b0915, #0e0a18);
+  color: white;
+}
+
+/* 2. Position the spirograph as a background layer */
+.section-bg-spiro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; /* Adjust size of the background circle here */
+  max-width: 90vw;
+  pointer-events: none; /* Ensures mouse clicks pass through the background */
+  z-index: 1; /* Sits behind text */
+  opacity: 0.8; /* Adjust transparency if you want it more subtle */
+}
+
+.spirograph-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 3. Keep text content above the background animation */
+.content-wrapper {
+      position:relative;
+      z-index: 2;
+      text-align: center;
+      color: #ffffff;
+      padding: 20px;
+    }
+
+/* Smooth GPU Animations */
+.spin-clockwise {
+  animation: rotateClockwise 24s linear infinite;
+  transform-origin: 215px 215px;
+}
+.spin-counter-clockwise {
+  animation: rotateCounterClockwise 18s linear infinite;
+  transform-origin: 215px 215px;
+}
+.spin-ring {
+  animation: rotateClockwise 12s linear infinite;
+  transform-origin: 215px 215px;
+}
+
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes rotateCounterClockwise {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+
+.journey-visual {
+    height: 300px;
+    position: relative;
+    max-width: 900px;
+    margin: 25px auto 0;
+}
+
+.education-section {
+    background:
+        radial-gradient(ellipse 60% 30% at 50% 0%, rgba(157,82,255,.2), transparent 70%),
+        linear-gradient(180deg, #f8f7fc, #f8f7fc);
+}
+
+.education-card {
+    max-width: 900px;
+    margin: 25px auto 0;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.9);
+    box-shadow: 0 20px 60px rgba(70,43,110,.09);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 70px rgba(125,50,255,0.15);
+}
+
+.education-icon {
+    width: 75px;
+    height: 75px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2f7cff, #9b3cff, #ec6b4b);
+    color: white;
+    font-family: "Space Grotesk";
+    font-weight: 700;
+    animation: aiGradientShift 6s ease infinite;
+    background-size: 200% auto;
+}
+
+.education-year {
+    font-size: 12px;
+    color: #8248ff;
+    font-weight: 700;
+}
+
+.education-content h3 {
+    font-family: "Space Grotesk";
+    font-size: 25px;
+    margin-top: 6px;
+}
+
+.education-content h4 {
+    font-size: 14px;
+    color: #766d87;
+    margin-top: 5px;
+}
+
+.education-content p {
+    color: #81788e;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 12px;
+}
+
+.education-status {
+    margin-left: auto;
+    white-space: nowrap;
+    padding: 9px 13px;
+    border-radius: 50px;
+    background: #f1edff;
+    color: #7544e8;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.education-status span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #7e4aff;
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: pulseDot 2s ease-in-out infinite;
+}
+
+.black-text {
+    color: black;
+}
+
+.experience-section {
+    text-align: center;
+    padding: 60px 0;
+    color: white;
+    background:
+        radial-gradient(ellipse 50% 40% at 0% 50%, rgba(30,83,220,.28), transparent 70%),
+        radial-gradient(ellipse 50% 40% at 100% 50%, rgba(238,83,43,.25), transparent 70%),
+        linear-gradient(180deg, #0d0917, #0b0914);
+}
+
+.experience-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.experience-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.stat-card {
+    min-height: 150px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,.08);
+}
+
+.stat-card strong {
+    font-family: "Space Grotesk";
+    font-size: 40px;
+    background: var(--gradient);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: aiGradientShift 6s ease infinite;
+}
+
+.stat-card span {
+    color: #9a90a9;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-section {
+    padding: 60px 0;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse 60% 70% at 50% 50%, rgba(126,45,235,.32), transparent 70%),
+        linear-gradient(180deg, #0b0914, #110a1c);
+}
+
+.contact-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: radial-gradient(circle, rgba(145,60,255,.3), transparent 65%);
+    filter: blur(40px);
+    animation: floatGlow 8s ease-in-out infinite alternate;
+}
+
+.contact-container {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-heading {
+    font-family: "Space Grotesk";
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 1;
+    letter-spacing: -4px;
+    margin-top: 20px;
+}
+
+.contact-description {
+    max-width: 600px;
+    margin: 20px auto 30px;
+    color: #a49ab5;
+    line-height: 1.7;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+
+/* =====================================================
+   ROUNDED / CURVED FOOTER DESIGN WITH AI GRADIENT BETWEEN CONTACT & FOOTER
+===================================================== */
+
+/* =====================================================
+   ROUNDED / CURVED FOOTER DESIGN WITH NEON ARC GLOW
+===================================================== */
+
+.portfolio-footer {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 500px;
+    padding: 100px 20px 30px;
+    color: #f2eef9;
+    background: #0b0914; /* Clean dark background without top extra gradient */
+}
+
+.portfolio-footer::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -12%;
+    right: -12%;
+    top: 70px;
+    height: 480px;
+    border-radius: 50% 50% 0 0 / 90% 90% 0 0;
+    background: linear-gradient(180deg, #100e1a 0%, #0d0b17 62%, #0b0914 100%);
+    
+    /* Neon Glowing Gradient Arc directly along the curved ellipse edge */
+    border-top: 3px solid #df45ff;
+    box-shadow: 
+        0 -10px 25px #e042ff,
+        0 -25px 60px #9e12f0,
+        0 -50px 100px rgba(138, 43, 226, 0.6),
+        inset 0 15px 30px rgba(244, 122, 255, 0.4);
+}
+
+.portfolio-footer::after {
+    display: none; /* Removes extra background gradient overlays above the footer */
+}
+.footer-inner {
+    position: relative;
+    z-index: 2;
+    width: min(1000px, 100%);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 17px;
+    border-radius: 999px;
+    background: rgba(103,62,151,.2);
+    color: #c9bfdc;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.footer-badge span {
+    color: #a74cff;
+}
+
+.footer-heading {
+    max-width: 850px;   
+    margin: 20px auto 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(40px, 6vw, 70px);
+    line-height: 1.02;
+    letter-spacing: -3px;
+    font-weight: 600;
+    color: #f0edf5;
+}
+
+.footer-heading span {
+    background: linear-gradient(100deg, #278eff 0%, #7a48ff 34%, #d33cdb 70%, #ff7738 100%);
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: aiGradientShift 6s ease infinite;
+}
+
+.footer-description {
+    max-width: 680px;
+    margin: 18px auto 0;
+    color: #91879f;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.footer-actions {
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.footer-primary,
+.footer-secondary {
+    min-height: 48px;
+    padding: 0 20px;
+    border-radius: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: transform .25s ease, background .25s ease;
+}
+
+.footer-primary {
+    color: #fff;
+    background: linear-gradient(105deg, #286fff, #763aff);
+    box-shadow: 0 12px 35px rgba(88,55,255,.24);
+}
+
+.footer-secondary {
+    color: #d5cede;
+    background: rgba(255,255,255,.045);
+}
+
+.footer-primary:hover,
+.footer-secondary:hover {
+    transform: translateY(-3px);
+}
+
+.footer-secondary:hover {
+    background: rgba(255,255,255,.08);
+}
+
+.portfolio-footer .footer-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-top: 60px;
+    padding-top: 20px;
+}
+
+.portfolio-footer .footer-nav a {
+    color: #91879f;
+    text-decoration: none;
+    font-size: 12px;
+    transition: color .2s ease;
+}
+
+.portfolio-footer .footer-nav a:hover {
+    color: #cbbdff;
+}
+
+.portfolio-footer .footer-bottom {
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: #70677d;
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   AI ROTATING BORDER PATH ANIMATIONS FOR SVG BUTTONS
+===================================================== */
+
+@keyframes rotateGradientBorder {
+    0% {
+        gradientTransform: rotate(0 250 80);
+    }
+    100% {
+        gradientTransform: rotate(360 250 80);
+    }
+}
+
+.ai-border-rotating {
+    animation: rotateGradientBorder 4s linear infinite;
+}
+
+/* Hover scales for SVG Buttons */
+.ai-animated-btn {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+}
+
+.ai-animated-btn:hover {
+    transform: scale(1.03);
+}
+
+/* FOOTER BUTTONS SPECIFIC GLOW & ANIMATION */
+.footer-btn-glow {
+    animation: footerPulseGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes footerPulseGlow {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.75; }
+}
+
+/* =====================================================
+   RESPONSIVE FIXES (UPDATED)
+===================================================== */
+
+@media (max-width: 900px) {
+    .hero {
+        padding-top: 50px !important; /* মোবাইলে অতিরিক্ত ফাঁকা জায়গা একদম রিমুভ করার জন্য */
+    }
+}
+
+@media (max-width: 900px) {
+    /* ন্যাভবারের ফন্ট সাইজ এবং গ্যাপ কমিয়ে ছোট স্ক্রিনে সব অপশন একসাথে দেখানোর ব্যবস্থা */
+    .navbar {
+        width: calc(100% - 20px);
+        padding: 6px 10px;
+    }
+    
+    .nav-links {
+        display: flex; /* মোবাইল স্ক্রিনেও অপশনগুলো দেখাবে */
+        gap: 12px;     /* অপশনগুলোর মাঝের দূরত্ব কমিয়ে দেওয়া হলো */
+    }
+
+    .nav-links a {
+        font-size: 10px; /* ফন্ট ছোট করা হলো যাতে সহজে ধরে যায় */
+    }
+
+    .nav-button {
+        min-width: 80px;
+        height: 36px;
+        font-size: 11px;
+    }
+
+    /* হিরো সেকশনের অতিরিক্ত স্পেস কমানো হলো */
+    .hero {
+        padding-top: 100px; 
+        padding-bottom: 60px;
+    }
+
+    .intro-grid, .skills-grid, .projects-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    
+    .experience-wrapper { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .hero-half-circle-arc { 
+        width: 450px; 
+        height: 450px; 
+        top: 42%;
+    }
+}
+
+@media (max-width: 600px) {
+    /* একদম ছোট মোবাইল স্ক্রিনের জন্য */
+    .nav-links {
+        gap: 8px; /* আরও একটু গ্যাপ কমানো হলো */
+    }
+    
+    .nav-links a {
+        font-size: 9px;
+    }
+
+    .section-container { width: calc(100% - 20px); }
+    
+    .intro-grid, .skills-grid, .projects-grid, .experience-stats { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .education-card { 
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+    
+    .education-status { margin-left: 0; }
+    
+    .hero {
+        padding-top: 90px; /* মোবাইলের অতিরিক্ত স্পেস দূর করার জন্য */
+    }
+
+    .hero-half-circle-arc { 
+        width: 320px; 
+        height: 320px; 
+        top: 45%;
+    }
+}
+
+</style>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+
+<body>
+
+<!-- BACKGROUND GLOW -->
+<div class="page-glow glow-blue"></div>
+<div class="page-glow glow-purple"></div>
+<div class="page-glow glow-orange"></div>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <a href="#home" class="logo">
+    <svg class="logo-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="9" stroke="url(#logo-gradient)" stroke-width="3" />
+        <defs>
+            <linearGradient id="logo-gradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#347cff" />
+                <stop offset="50%" stop-color="#963eff" />
+                <stop offset="100%" stop-color="#ff8235" />
+            </linearGradient>
+        </defs>
+    </svg>
+    <span class="gradient-text"><h3></h3></span>
+</a>
+    <nav class="nav-links">
+        <a href="#about">ＡＢＯＵＴ</a>
+        <a href="#skills">ＳＫＩＬＬＳ</a>
+        <a href="#projects">ＰＲＯＪＥＣＴＳ</a>
+        <a href="#learning"> ＬＥＡＲＮＩＮＧ</a>
+    </nav>
+    <a href="#contact" class="nav-button">ʟᴇᴛ'ꜱ ᴛᴀʟᴋ</a>
+</header>
+
+<main>
+
+<!-- HERO (EXACT HALF-CIRCLE NEON ARC MATCHING IMAGE) -->
+<section class="hero" id="home">
+    <div class="hero-cosmic-aura"></div>
+    <div class="hero-half-circle-arc"></div>
+    <div class="hero-content">
+        <div class="small-badge">
+            <span class="badge-dot"></span>
+            ＣＳＥ • ＡＩ ＆ ＭＬ
+        </div>
+        <h1>
+            Turning curiosity into
+            <span class="gradient-text">intelligent ideas.</span>
+        </h1>
+        <p class="hero-description">
+            ꜰɪʀꜱᴛ-ʏᴇᴀʀ ᴄᴏᴍᴘᴜᴛᴇʀ ꜱᴄɪᴇɴᴄᴇ ꜱᴛᴜᴅᴇɴᴛ ᴇxᴘʟᴏʀɪɴɢ ᴘʏᴛʜᴏɴ,
+            ᴍᴀᴄʜɪɴᴇ ʟᴇᴀʀɴɪɴɢ, ɪɴᴛᴇʟʟɪɢᴇɴᴛ ꜱʏꜱᴛᴇᴍꜱ ᴀɴᴅ ᴄʀᴇᴀᴛɪᴠᴇ
+            ᴘʀᴏʙʟᴇᴍ-ꜱᴏʟᴠɪɴɢ — ᴡɪᴛʜ ᴄᴜʀɪᴏꜱɪᴛʏ ꜰɪʀꜱᴛ ᴀɴᴅ ᴄᴏᴅᴇ ꜱᴇᴄᴏɴᴅ
+        </p>
+        <div class="hero-buttons">
+
+      <a href="#projects" class="ai-animated-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 160" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient for Button Body -->
+    <linearGradient id="aiBackground" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0c1b" />
+      <stop offset="50%" stop-color="#15102a" />
+      <stop offset="100%" stop-color="#090514" />
+    </linearGradient>
+
+    <!-- AI Multi-color Border & Accent Gradient -->
+    <linearGradient id="aiGlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="35%" stop-color="#4facfe" />
+      <stop offset="70%" stop-color="#00c6ff" />
+      <stop offset="100%" stop-color="#0072ff" />
+    </linearGradient>
+
+    <!-- Vibrant AI Neon Gradient with Continuously Moving Border Colors -->
+    <linearGradient id="aiBorderGradient1" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="userSpaceOnUse" class="ai-border-rotating">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="33%" stop-color="#9b51e0" />
+      <stop offset="66%" stop-color="#ff007a" />
+      <stop offset="100%" stop-color="#00f2fe" />
+    </linearGradient>
+
+    <!-- Outer Neon Glow for Depth -->
+    <filter id="outerGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+    </filter>
+  </defs>
+
+  <!-- Ambient Glow Behind the Button -->
+  <rect x="30" y="30" width="440" height="100" rx="50" fill="url(#aiBorderGradient1)" opacity="0.45" filter="url(#outerGlow)" />
+
+  <!-- Main Button Frame with Moving AI Color Path Border -->
+  <rect x="30" y="30" width="440" height="100" rx="50" fill="url(#aiBackground)" stroke="url(#aiBorderGradient1)" stroke-width="3.5" />
+
+  <!-- Subtle AI Shimmer Highlight Line -->
+  <path d="M 80 30 L 420 30" stroke="url(#aiGlowGradient)" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+
+  <!-- Sparkle / AI Icon Details -->
+  <g transform="translate(65, 80) scale(0.85)" fill="url(#aiBorderGradient1)">
+    <!-- Main 4-point Star -->
+    <path d="M 0 -18 Q 0 0 18 0 Q 0 0 0 18 Q 0 0 -18 0 Q 0 0 0 -18 Z" />
+    <!-- Secondary Small Star -->
+    <path d="M 16 -16 Q 16 -8 24 -8 Q 16 -8 16 0 Q 16 -8 8 -8 Q 16 -8 16 -16 Z" opacity="0.8" />
+  </g>
+
+  <!-- Clean, Simple Text "Explore My Works" -->
+  <text x="270" y="89" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="450" letter-spacing="1.5" fill="#ffffff" text-anchor="middle">
+    <a href="#projects">ᴇxᴘʟᴏʀᴇ ᴍʏ ᴡᴏʀᴋꜱ!</a>
+  </text>
+</svg></a>
+<a href="#contact" class="secondary-button">Let's connect</a>
+         </div>
+    </div>
+</section>
+
+<!-- LEARNING SECTION -->
+<section class="intro-section" id="about">
+    <div class="section-container">
+        <div class="section-badge">✦ Learning in public</div>
+        <h2>
+            Turning a first year into a
+            <span class="gradient-text">strong foundation.</span>
+        </h2>
+        <p class="section-description">
+            ɪ ᴀᴍ ʙᴜɪʟᴅɪɴɢ ᴍʏ ꜰᴏᴜɴᴅᴀᴛɪᴏɴ ɪɴ ᴄᴏᴍᴘᴜᴛᴇʀ ꜱᴄɪᴇɴᴄᴇ,
+            ᴇxᴘᴇʀɪᴍᴇɴᴛɪɴɢ ᴡɪᴛʜ ᴀɪ ᴀɴᴅ ᴍᴀᴄʜɪɴᴇ ʟᴇᴀʀɴɪɴɢ, ᴀɴᴅ
+            ʟᴇᴀʀɴɪɴɢ ʜᴏᴡ ɪᴅᴇᴀꜱ ʙᴇᴄᴏᴍᴇ ᴜꜱᴇꜰᴜʟ ꜱᴏꜰᴛᴡᴀʀᴇ.
+        </p>
+        <div class="intro-grid">
+            <div class="info-card">
+                <div class="card-number">01</div>
+                <h3>ＬＥＡＲＮ</h3>
+                <p>ᴜɴᴅᴇʀꜱᴛᴀɴᴅɪɴɢ ᴘʀᴏɢʀᴀᴍᴍɪɴɢ ꜰᴜɴᴅᴀᴍᴇɴᴛᴀʟꜱ, ᴀʟɢᴏʀɪᴛʜᴍꜱ, ᴍᴀᴛʜᴇᴍᴀᴛɪᴄꜱ ᴀɴᴅ ᴄᴏʀᴇ ɪᴅᴇᴀꜱ ʙᴇʜɪɴᴅ ɪɴᴛᴇʟʟɪɢᴇɴᴛ ꜱʏꜱᴛᴇᴍꜱ.</p>
+            </div>
+            <div class="info-card">
+                <div class="card-number">02</div>
+                <h3>ＢＵＩＬＤ</h3>
+                <p>ᴛᴜʀɴɪɴɢ ᴡʜᴀᴛ ɪ ʟᴇᴀʀɴ ɪɴᴛᴏ ꜱᴍᴀʟʟ ᴘʀᴏᴊᴇᴄᴛꜱ, ᴇxᴘᴇʀɪᴍᴇɴᴛꜱ ᴀɴᴅ ᴘʀᴀᴄᴛɪᴄᴀʟ ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴꜱ.</p>
+            </div>
+            <div class="info-card">
+                <div class="card-number">03</div>
+                <h3>ＩＭＰＲＯＶＥ</h3>
+                <p>ʟᴇᴀʀɴɪɴɢ ꜰʀᴏᴍ ᴍɪꜱᴛᴀᴋᴇꜱ, ɪᴍᴘʀᴏᴠɪɴɢ ᴍʏ ᴄᴏᴅᴇ ᴀɴᴅ ᴄᴏɴᴛɪɴᴜᴏᴜꜱʟʏ ᴅᴇᴠᴇʟᴏᴘɪɴɢ ʙᴇᴛᴛᴇʀ ɪᴅᴇᴀꜱ.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+    <div class="section-container">
+        <div class="section-badge">⚡ Skills & exploration</div>
+        <h2>
+            Building the fundamentals
+            <span class="gradient-text">that matter.</span>
+        </h2>
+        <p class="section-description">
+            ᴍʏ ᴄᴜʀʀᴇɴᴛ ꜰᴏᴄᴜꜱ ɪꜱ ᴄʀᴇᴀᴛɪɴɢ ᴀ ꜱᴛʀᴏɴɢ ʙᴀꜱᴇ ɪɴ
+            ᴘʀᴏɢʀᴀᴍᴍɪɴɢ ᴀɴᴅ ɢʀᴀᴅᴜᴀʟʟʏ ᴍᴏᴠɪɴɢ ᴛᴏᴡᴀʀᴅ ᴀɪ ᴀɴᴅ
+            ᴍᴀᴄʜɪɴᴇ ʟᴇᴀʀɴɪɴɢ.
+        </p>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">&lt;/&gt;</div>
+                <h3>Python</h3>
+                <p>Learning programming fundamentals, functions, data structures and problem solving.</p>
+                <div class="skill-bar"><span style="width:72%"></span></div>
+                <small>Learning</small>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">◎</div>
+                <h3>AI & Machine Learning</h3>
+                <p>Exploring machine learning concepts, datasets, models and intelligent systems.</p>
+                <div class="skill-bar"><span style="width:45%"></span></div>
+                <small>Exploring</small>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">◈</div>
+                <h3>Web Development</h3>
+                <p>Building responsive interfaces using HTML, CSS and modern frontend techniques.</p>
+                <div class="skill-bar"><span style="width:65%"></span></div>
+                <small>Building</small>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">#</div>
+                <h3>Problem Solving</h3>
+                <p>Developing logical thinking through programming challenges and experiments.</p>
+                <div class="skill-bar"><span style="width:60%"></span></div>
+                <small>Developing</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+    <div class="section-container">
+        <div class="section-badge dark-badge">✦ What I'm building</div>
+        <h2 class="dark-heading">
+            Small projects.
+            <span class="gradient-text">Big learning.</span>
+        </h2>
+        <p class="section-description dark-description">
+            ᴇᴠᴇʀʏ ᴘʀᴏᴊᴇᴄᴛ ɪꜱ ᴀɴ ᴏᴘᴘᴏʀᴛᴜɴɪᴛʏ ᴛᴏ ᴜɴᴅᴇʀꜱᴛᴀɴᴅ ꜱᴏᴍᴇᴛʜɪɴɢ ɴᴇᴡ ᴀɴᴅ ᴛᴜʀɴ ᴛʜᴇᴏʀʏ ɪɴᴛᴏ ꜱᴏᴍᴇᴛʜɪɴɢ ʀᴇᴀʟ.
+        </p>
+        <div class="projects-grid">
+            <article class="project-card">
+                <div class="project-top">
+                    <span class="project-tag">Python</span>
+                    <a href="#projects" class="project-arrow">▶</a>
+                </div>
+                <div class="project-content-box">
+                    <h4>ＰＹＴＨＯＮ</h4>
+                    <p class="section-description dark-description" style="text-align: left; margin: 0;">ᴀ ᴄᴏʟʟᴇᴄᴛɪᴏɴ ᴏꜰ ᴘʏᴛʜᴏɴ ᴇxᴘᴇʀɪᴍᴇɴᴛꜱ, ᴘʀᴏɢʀᴀᴍᴍɪɴɢ ᴇxᴇʀᴄɪꜱᴇꜱ ᴀɴᴅ ꜱᴍᴀʟʟ ᴜᴛɪʟɪᴛɪᴇꜱ.</p>
+                </div>
+                <a href="#projects" class="project-explore-btn">Explore</a>
+            </article>
+            <article class="project-card">
+                <div class="project-top">
+                    <span class="project-tag">AI / ML</span>
+                    <a href="#projects" class="project-arrow">▶</a>
+                </div>
+                <div class="project-content-box">
+                    <h4>ＭＬ ＥＸＰＥＲＩＭＥＮＴ</h4>
+                    <p class="section-description dark-description" style="text-align: left; margin: 0;">ᴀɴ ᴇᴀʀʟʏ ᴍᴀᴄʜɪɴᴇ-ʟᴇᴀʀɴɪɴɢ ᴇxᴘᴇʀɪᴍᴇɴᴛ ꜰᴏᴄᴜꜱᴇᴅ ᴏɴ ᴜɴᴅᴇʀꜱᴛᴀɴᴅɪɴɢ ᴅᴀᴛᴀ ᴀɴᴅ ᴍᴏᴅᴇʟ ᴘʀᴇᴅɪᴄᴛɪᴏɴꜱ.</p>
+                </div>
+                <a href="#projects" class="project-explore-btn">Explore</a>
+            </article>
+            <article class="project-card">
+                <div class="project-top">
+                    <span class="project-tag">Web</span>
+                    <a href="#projects" class="project-arrow">▶</a>
+                </div>
+                <div class="project-content-box">
+                    <h4>ＰＯＲＴＦＯＬＩＯ</h4>
+                    <p class="section-description dark-description" style="text-align: left; margin: 0;">ᴀ ᴍᴏᴅᴇʀɴ ʀᴇꜱᴘᴏɴꜱɪᴠᴇ ᴡᴇʙꜱɪᴛᴇ ᴇxᴘᴇʀɪᴍᴇɴᴛ ᴄᴏᴍʙɪɴɪɴɢ ᴅᴇꜱɪɢɴ, ᴀɴɪᴍᴀᴛɪᴏɴ ᴀɴᴅ ꜰʀᴏɴᴛᴇɴᴅ ᴄᴏᴅᴇ.</p>
+                </div>
+                <a href="#projects" class="project-explore-btn">Explore</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- LEARNING JOURNEY -->
+<section class="journey-section" id="learning">
+
+
+     <!-- Copy and paste this code snippet wherever you want the animated circle to appear -->
+
+<div class="spirograph-container">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 430" class="spirograph-svg">
+    <defs>
+      <!-- Vibrant Outer Ring Gradient matching exact Dribbble theme -->
+      <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#2B41FF"/>
+        <stop offset="30%" stop-color="#9333EA"/>
+        <stop offset="60%" stop-color="#EC4899"/>
+        <stop offset="85%" stop-color="#F59E0B"/>
+        <stop offset="100%" stop-color="#3B82F6"/>
+      </linearGradient>
+
+      <!-- Spirograph Mesh Line Gradient -->
+      <linearGradient id="meshGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#4F46E5" stop-opacity="0.5"/>
+        <stop offset="50%" stop-color="#A855F7" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.5"/>
+      </linearGradient>
+
+      <!-- Soft Outer & Inner Glow Filter -->
+      <filter id="ringGlow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="6" result="blur" />
+        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+      </filter>
+
+      <filter id="centerGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="15" result="blur" />
+      </filter>
+
+      <!-- Reusable Hypotrochoid / Flower Curve Pattern -->
+      <g id="petalRing">
+        <path d="M 215,65 C 290,135 290,295 215,365 C 140,295 140,135 215,65 Z" 
+              fill="none" 
+              stroke="url(#meshGradient)" 
+              stroke-width="0.85" />
+      </g>
+    </defs>
+
+    <!-- Glowing Background Aura -->
+    <circle cx="215" cy="215" r="190" fill="url(#ringGradient)" opacity="0.12" filter="url(#ringGlow)"/>
+
+    <!-- Central Glowing Light Core -->
+    <circle cx="215" cy="215" r="45" fill="#FFFFFF" opacity="0.9" filter="url(#centerGlow)"/>
+    <circle cx="215" cy="215" r="22" fill="#FFFFFF" opacity="0.95"/>
+
+    <!-- Layer 1: Outer Rotating Spirograph Mesh (Clockwise) -->
+    <g class="spiro-layer spin-clockwise">
+      <use href="#petalRing" transform="rotate(0 215 215)" />
+      <use href="#petalRing" transform="rotate(15 215 215)" />
+      <use href="#petalRing" transform="rotate(30 215 215)" />
+      <use href="#petalRing" transform="rotate(45 215 215)" />
+      <use href="#petalRing" transform="rotate(60 215 215)" />
+      <use href="#petalRing" transform="rotate(75 215 215)" />
+      <use href="#petalRing" transform="rotate(90 215 215)" />
+      <use href="#petalRing" transform="rotate(105 215 215)" />
+      <use href="#petalRing" transform="rotate(120 215 215)" />
+      <use href="#petalRing" transform="rotate(135 215 215)" />
+      <use href="#petalRing" transform="rotate(150 215 215)" />
+      <use href="#petalRing" transform="rotate(165 215 215)" />
+    </g>
+
+    <!-- Layer 2: Inner Counter-Rotating Inner Accent Mesh -->
+    <g class="spiro-layer spin-counter-clockwise">
+      <g transform="translate(215, 215) scale(0.72) translate(-215, -215)">
+        <use href="#petalRing" transform="rotate(7.5 215 215)" />
+        <use href="#petalRing" transform="rotate(37.5 215 215)" />
+        <use href="#petalRing" transform="rotate(67.5 215 215)" />
+        <use href="#petalRing" transform="rotate(97.5 215 215)" />
+        <use href="#petalRing" transform="rotate(127.5 215 215)" />
+        <use href="#petalRing" transform="rotate(157.5 215 215)" />
+      </g>
+    </g>
+
+    <!-- Outer Vibrant Animated Border Ring -->
+    <circle cx="215" cy="215" r="190" 
+            fill="none" 
+            stroke="url(#ringGradient)" 
+            stroke-width="8" 
+            filter="url(#ringGlow)"
+            class="spin-ring" />
+  </svg>
+</div>
+
+<!-- Embedded CSS Styling & Animations -->
+<style>
+  /* Container styling - adjust width/height to fit your layout */
+  .spirograph-container {
+    width: 100%;
+    max-width: 430px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    margin: 0 auto;
+  }
+
+  .spirograph-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    background: transparent;
+  }
+
+  /* GPU-Accelerated Smooth 60fps Rotation Animations */
+  .spin-clockwise {
+    animation: rotateClockwise 24s linear infinite;
+    transform-origin: 215px 215px;
+    will-change: transform;
+  }
+
+  .spin-counter-clockwise {
+    animation: rotateCounterClockwise 18s linear infinite;
+    transform-origin: 215px 215px;
+    will-change: transform;
+  }
+
+  .spin-ring {
+    animation: rotateClockwise 12s linear infinite;
+    transform-origin: 215px 215px;
+    will-change: transform;
+  }
+
+  @keyframes rotateClockwise {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes rotateCounterClockwise {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+</style>
+
+    
+<div class="content-wrapper">
+    <div class="section-container">
+        <div class="section-badge dark-badge">✦ My learning journey</div>
+        <h2 class="dark-heading">
+            You steadily gain
+            <span class="gradient-text">impactful momentum.</span>
+        </h2>
+        <p class="section-description dark-description">
+            ɴᴏ ɴᴇᴇᴅ ᴛᴏ ᴋɴᴏᴡ ᴇᴠᴇʀʏᴛʜɪɴɢ ᴀᴛ ᴏɴᴄᴇ. ᴇᴠᴇʀʏ ᴄᴏɴᴄᴇᴘᴛ ᴇxᴘᴀɴᴅꜱ ᴏɴ ᴡʜᴀᴛ ᴄᴀᴍᴇ ʙᴇꜰᴏʀᴇ. ᴇᴠᴇʀʏ ᴘʀᴏᴊᴇᴄᴛ ʙᴜɪʟᴅꜱ ᴏɴ ᴛʜᴇ ʟᴀꜱᴛ.
+        </p>
+    </div>
+    </div>
+
+
+
+
+    
+</section>
+
+<!-- EDUCATION -->
+<section class="education-section">
+    <div class="section-container">
+        <div class="section-badge">🎓 Education</div>
+        <h2>
+           <span class="black-text">Starting with curiosity.</span>
+            <span class="gradient-text">Growing with consistency.</span>
+        </h2>
+        <div class="education-card">
+            <div class="education-icon">CSE</div>
+            <div class="education-content">
+                <span class="education-year">2025 — Present</span>
+                <h3>Bachelor of Technology</h3>
+                <h4>Computer Science & Engineering</h4>
+                <p>First-year student with a growing specialization interest in Artificial Intelligence and Machine Learning.</p>
+            </div>
+            <div class="education-status">
+                <span></span>
+                Currently studying
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience-section">
+    <div class="section-container">
+        <div class="experience-wrapper">
+            <div class="experience-content">
+                <div class="section-badge dark-badge">✦ Where I am now</div>
+                <h2 class="dark-heading">
+                    From learning concepts
+                    <span class="gradient-text">to building confidence.</span>
+                </h2>
+                <p class="dark-description">
+                   ɪ ᴀᴍ ᴀᴛ ᴛʜᴇ ʙᴇɢɪɴɴɪɴɢ ᴏꜰ ᴍʏ ᴊᴏᴜʀɴᴇʏ. ᴍʏ ɢᴏᴀʟ ɪꜱɴ'ᴛ ᴛᴏ ᴋɴᴏᴡ ᴇᴠᴇʀʏᴛʜɪɴɢ ɪᴍᴍᴇᴅɪᴀᴛᴇʟʏ. 
+                   ɪᴛ'ꜱ ᴛᴏ ʙᴜɪʟᴅ ꜱᴛʀᴏɴɢ ꜰᴜɴᴅᴀᴍᴇɴᴛᴀʟꜱ, ꜱᴛᴀʏ ᴄᴜʀɪᴏᴜꜱ, ᴀɴᴅ ᴄʀᴇᴀᴛᴇ ꜱᴏᴍᴇᴛʜɪɴɢ ʙᴇᴛᴛᴇʀ ᴡɪᴛʜ ᴇᴠᴇʀʏ ᴘʀᴏᴊᴇᴄᴛ.
+                </p>
+                <a href="#contact" class="ai-animated-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 160" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient for Button Body -->
+    <linearGradient id="aiBackground" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0c1b" />
+      <stop offset="50%" stop-color="#15102a" />
+      <stop offset="100%" stop-color="#090514" />
+    </linearGradient>
+
+    <!-- AI Multi-color Border & Accent Gradient -->
+    <linearGradient id="aiGlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="35%" stop-color="#4facfe" />
+      <stop offset="70%" stop-color="#00c6ff" />
+      <stop offset="100%" stop-color="#0072ff" />
+    </linearGradient>
+
+    <!-- Vibrant AI Neon Gradient with Continuously Moving Border Colors -->
+    <linearGradient id="aiBorderGradient2" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="userSpaceOnUse" class="ai-border-rotating">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="33%" stop-color="#9b51e0" />
+      <stop offset="66%" stop-color="#ff007a" />
+      <stop offset="100%" stop-color="#00f2fe" />
+    </linearGradient>
+
+    <!-- Ring Specific Gradient (Rotated angle for dynamic effect) -->
+    <linearGradient id="ringGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="50%" stop-color="#9b51e0" />
+      <stop offset="100%" stop-color="#ff007a" />
+    </linearGradient>
+
+    <!-- Outer Neon Glow for Depth -->
+    <filter id="outerGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+    </filter>
+
+    <!-- Icon Soft Glow Filter -->
+    <filter id="iconGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Ambient Glow Behind the Button -->
+  <rect x="30" y="30" width="440" height="100" rx="50" fill="url(#aiBorderGradient2)" opacity="0.45" filter="url(#outerGlow)" />
+
+  <!-- Main Button Frame with Moving AI Border Path -->
+  <rect x="30" y="30" width="440" height="100" rx="50" fill="url(#aiBackground)" stroke="url(#aiBorderGradient2)" stroke-width="3.5" />
+
+  <!-- Subtle AI Shimmer Highlight Line -->
+  <path d="M 80 30 L 420 30" stroke="url(#aiGlowGradient)" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+
+  <!-- AI Gradient Color Ring Logo -->
+  <g transform="translate(68, 80)" filter="url(#iconGlow)">
+    <!-- Outer Glowing Ring -->
+    <circle cx="0" cy="0" r="16" fill="none" stroke="url(#ringGradient)" stroke-width="4.5" />
+    <!-- Inner Accent Ring Accent -->
+    <circle cx="0" cy="0" r="10" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.4" />
+  </g>
+
+  <!-- Clean, Simple Text "Explore My Works" -->
+  <text x="270" y="89" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="1.5" fill="#ffffff" text-anchor="middle">
+    <a href="#contact">ＣＯＮＮＥＣＴ ＷＩＴＨ ＭＥ ！</a>
+  </text>
+</svg></a>
+            </div>
+            <div class="experience-stats">
+                <div class="stat-card">
+                    <strong>01</strong>
+                    <span>Year of CSE</span>
+                </div>
+                <div class="stat-card">
+                    <strong>04+</strong>
+                    <span>Areas exploring</span>
+                </div>
+                <div class="stat-card">
+                    <strong>∞</strong>
+                    <span>Things to learn</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+    <div class="contact-glow"></div>
+    <div class="section-container contact-container">
+        <div class="section-badge dark-badge">✦ Let's connect</div>
+        <h2 class="contact-heading">
+            Have an idea?<br>
+            <span class="gradient-text">Let's build something.</span>
+        </h2>
+        <p class="contact-description">
+            ɪ'ᴍ ᴀʟᴡᴀʏꜱ ɪɴᴛᴇʀᴇꜱᴛᴇᴅ ɪɴ ʟᴇᴀʀɴɪɴɢ, ᴄᴏʟʟᴀʙᴏʀᴀᴛɪɴɢ ᴀɴᴅ ᴄᴏɴɴᴇᴄᴛɪɴɢ ᴡɪᴛʜ ᴘᴇᴏᴘʟᴇ ᴡʜᴏ ᴇɴᴊᴏʏ ʙᴜɪʟᴅɪɴɢ ᴛʜɪɴɢꜱ.
+        </p>
+        <div class="contact-buttons">
+
+            
+            <a href="mailto:sumitmidya001@gmail.com" class="ai-animated-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient for Button Body -->
+    <linearGradient id="aiBackground" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0c1b" />
+      <stop offset="50%" stop-color="#15102a" />
+      <stop offset="100%" stop-color="#090514" />
+    </linearGradient>
+
+    <!-- AI Multi-color Border & Accent Gradient -->
+    <linearGradient id="aiGlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="35%" stop-color="#4facfe" />
+      <stop offset="70%" stop-color="#00c6ff" />
+      <stop offset="100%" stop-color="#0072ff" />
+    </linearGradient>
+
+    <!-- Vibrant AI Neon Gradient with Continuously Moving Border Colors -->
+    <linearGradient id="aiBorderGradient3" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="userSpaceOnUse" class="ai-border-rotating">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="33%" stop-color="#9b51e0" />
+      <stop offset="66%" stop-color="#ff007a" />
+      <stop offset="100%" stop-color="#00f2fe" />
+    </linearGradient>
+
+    <!-- Outer Neon Glow for Depth -->
+    <filter id="outerGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+    </filter>
+  </defs>
+
+  <!-- Ambient Glow Behind the Button -->
+  <rect x="30" y="30" width="440" height="100" rx="50" fill="url(#aiBorderGradient3)" opacity="0.45" filter="url(#outerGlow)" />
+
+  <!-- Main Button Frame with Moving AI Border Path -->
+  <rect x="30" y="30" width="440" height="100" rx="50" fill="url(#aiBackground)" stroke="url(#aiBorderGradient3)" stroke-width="3.5" />
+
+  <!-- Subtle AI Shimmer Highlight Line -->
+  <path d="M 80 30 L 420 30" stroke="url(#aiGlowGradient)" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+
+  <!-- Centered Text "Explore My Works" -->
+  <text x="250" y="89" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="1.5" fill="#ffffff" text-anchor="middle">
+    <a href="mailto:sumitmidya001@gmail.com">ＥＭＡＩＬ ＭＥ！</a>
+  </text>
+</svg></a>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER (ROUNDED/CURVED WITH AI GRADIENT TRANSITION & ANIMATED BUTTONS) -->
+<footer class="portfolio-footer" id="footer">
+    <div class="footer-inner">
+        <div class="footer-badge"><span>◎</span> What to expect</div>
+        <h2 class="footer-heading">Let's build something<br><span>meaningful.</span></h2>
+        <p class="footer-description">ɪ'ᴍ ᴀ ꜰɪʀꜱᴛ-ʏᴇᴀʀ ᴄᴏᴍᴘᴜᴛᴇʀ ꜱᴄɪᴇɴᴄᴇ ꜱᴛᴜᴅᴇɴᴛ ᴇxᴘʟᴏʀɪɴɢ ᴘʏᴛʜᴏɴ, 
+            ᴀɪ, ᴍᴀᴄʜɪɴᴇ ʟᴇᴀʀɴɪɴɢ ᴀɴᴅ ᴄʀᴇᴀᴛɪᴠᴇ ᴛᴇᴄʜɴᴏʟᴏɢʏ — ʟᴇᴀʀɴɪɴɢ, ʙᴜɪʟᴅɪɴɢ ᴀɴᴅ ɪᴍᴘʀᴏᴠɪɴɢ ᴏɴᴇ ᴘʀᴏᴊᴇᴄᴛ ᴀᴛ ᴀ ᴛɪᴍᴇ.</p>
+       
+       
+            <div class="footer-actions">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 70" width="100%" height="100%">
+  <defs>
+    <!-- AI Multi-color Border Gradient for Footer Buttons -->
+    <linearGradient id="aiFooterBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="35%" stop-color="#9b51e0" />
+      <stop offset="70%" stop-color="#ff007a" />
+      <stop offset="100%" stop-color="#00f2fe" />
+    </linearGradient>
+
+    <!-- Top Highlight Accent Gradient -->
+    <linearGradient id="aiGlowGradientFooter" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="50%" stop-color="#00c6ff" />
+      <stop offset="100%" stop-color="#0072ff" />
+    </linearGradient>
+
+    <!-- Ambient Glow Filter -->
+    <filter id="outerGlowFooter" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+    </filter>
+  </defs>
+
+  <style>
+    .btn-text {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      font-size: 13.5px;
+      font-weight: 600;
+      fill: #111827;
+      letter-spacing: 0.4px;
+    }
+    .btn-link {
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+      transform-origin: center;
+    }
+    .btn-link:hover {
+      opacity: 0.95;
+      transform: translateY(-4px) scale(1.03);
+    }
+    .btn-link:hover .btn-glow-rect {
+      opacity: 0.8;
+      filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.8));
+    }
+    .btn-glow-rect {
+      transition: opacity 0.3s ease;
+    }
+  </style>
+
+  <!-- ================= 1. EMAIL BUTTON ================= -->
+  <a href="mailto:sumitmidya001@gmail.com" class="btn-link" target="_blank">
+    <g transform="translate(10, 10)">
+      <!-- Animated Outer Glow Ambient Path -->
+      <rect x="0" y="0" width="160" height="44" rx="22" fill="url(#aiFooterBorderGrad)" class="btn-glow-rect footer-btn-glow" opacity="0.4" filter="url(#outerGlowFooter)" />
+      <!-- Main White Button Frame -->
+      <rect x="0" y="0" width="160" height="44" rx="22" fill="#ffffff" stroke="url(#aiFooterBorderGrad)" stroke-width="2.2" />
+      <!-- Highlight Accent -->
+      <path d="M 22 0 L 138 0" stroke="url(#aiGlowGradientFooter)" stroke-width="1.5" opacity="0.7" />
+      
+      <!-- Official Gmail Logo -->
+      <g transform="translate(18, 11) scale(0.9)" fill="red">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+      </g>
+      
+      <!-- Text -->
+      <text x="100" y="27" class="btn-text" text-anchor="middle">Email Me</text>
+    </g>
+  </a>
+
+  <!-- ================= 2. LINKEDIN BUTTON ================= -->
+  <a href="www.linkedin.com/in/ꜱᴜᴍɪᴛ-ᴍɪᴅʏᴀ-proton" class="btn-link" target="_blank">
+    <g transform="translate(190, 10)">
+      <!-- Animated Outer Glow Ambient Path -->
+      <rect x="0" y="0" width="160" height="44" rx="22" fill="url(#aiFooterBorderGrad)" class="btn-glow-rect footer-btn-glow" opacity="0.4" filter="url(#outerGlowFooter)" />
+      <!-- Main White Button Frame -->
+      <rect x="0" y="0" width="160" height="44" rx="22" fill="#ffffff" stroke="url(#aiFooterBorderGrad)" stroke-width="2.2" />
+      <!-- Highlight Accent -->
+      <path d="M 22 0 L 138 0" stroke="url(#aiGlowGradientFooter)" stroke-width="1.5" opacity="0.7" />
+      
+      <!-- Official LinkedIn Blue Logo -->
+      <g transform="translate(18, 11) scale(0.9)" fill="#0A66C2">
+        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-1.11.38-1.9 1.41-1.9 1.03 0 1.34.8 1.34 1.9v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+      </g>
+      
+      <!-- Text -->
+      <text x="100" y="27" class="btn-text" text-anchor="middle">LinkedIn</text>
+    </g>
+  </a>
+
+  <!-- ================= 3. GITHUB BUTTON ================= -->
+  <a href="https://github.com/CODE-X-Plus" class="btn-link" target="_blank">
+    <g transform="translate(370, 10)">
+      <!-- Animated Outer Glow Ambient Path -->
+      <rect x="0" y="0" width="160" height="44" rx="22" fill="url(#aiFooterBorderGrad)" class="btn-glow-rect footer-btn-glow" opacity="0.4" filter="url(#outerGlowFooter)" />
+      <!-- Main White Button Frame -->
+      <rect x="0" y="0" width="160" height="44" rx="22" fill="#ffffff" stroke="url(#aiFooterBorderGrad)" stroke-width="2.2" />
+      <!-- Highlight Accent -->
+      <path d="M 22 0 L 138 0" stroke="url(#aiGlowGradientFooter)" stroke-width="1.5" opacity="0.7" />
+      
+      <!-- Official GitHub Logo -->
+      <g transform="translate(18, 11) scale(0.9)" fill="#181717">
+        <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+      </g>
+      
+      <!-- Text -->
+      <text x="100" y="27" class="btn-text" text-anchor="middle">GitHub</text>
+    </g>
+  </a>
+</svg>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#learning">Learning</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="footer-bottom">
+            <span>© 2026 Sumit Midya. Built with curiosity.</span>
+            <span>CSE • AI &amp; ML</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    /* Smooth scrolling */
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener("click", function(e) {
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    });
+
+    /* Navbar background while scrolling */
+    const navbar = document.querySelector(".navbar");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 40) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+    });
+
+    /* Dynamic Rotating Gradient Borders on SVG Buttons */
+    let angle = 0;
+    function animateAiBorders() {
+        angle = (angle + 1.5) % 360;
+        const g1 = document.getElementById("aiBorderGradient1");
+        const g2 = document.getElementById("aiBorderGradient2");
+        const g3 = document.getElementById("aiBorderGradient3");
+        const gFooter = document.getElementById("aiFooterBorderGrad");
+        
+        if (g1) g1.setAttribute("gradientTransform", `rotate(${angle}, 250, 80)`);
+        if (g2) g2.setAttribute("gradientTransform", `rotate(${angle}, 250, 80)`);
+        if (g3) g3.setAttribute("gradientTransform", `rotate(${angle}, 250, 80)`);
+        if (gFooter) gFooter.setAttribute("gradientTransform", `rotate(${angle}, 270, 35)`);
+        
+        requestAnimationFrame(animateAiBorders);
+    }
+    animateAiBorders();
+</script>
+
+</body>
+</html>
